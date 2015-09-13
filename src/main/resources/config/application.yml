@@ -13,15 +13,18 @@ async:
     maxPoolSize: 50
     queueCapacity: 10000
 
+jpa:
+    show_sql: true
+    
 mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    host: smtp.gmail.com
+    port: 587
+    username: petcaresiberian@gmail.com
+    password: Siberian!
     protocol: smtp
-    tls: false
-    auth: false
-    from: petcare@localhost
+    tls: true
+    auth: true
+    from: petcaresiberian@gmail.com
 
 authentication:
     xauth:
