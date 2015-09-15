@@ -1,96 +1,146 @@
 package com.petcare.domain;
 
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+/**
+ * A Adoption.
+ */
 @Entity
-@Table(name="PET_ADOPTION")
-public class Adoption extends AbstractAuditingEntity implements Serializable {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String name;
-	
-	private String species;
-	
-	private int age;
-	
-	private String gender;
-	
-	private String size;
-	
-	private String description;
-	
-	private User foundation;
-	
-	public Long getId() {
-		return id;
-	}
+@Table(name = "ADOPTION")
+public class Adoption implements Serializable {
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
+    
+    @Column(name = "name")
+    private String name;
+    
+    @Column(name = "species")
+    private String species;
 
-	public String getName() {
-		return name;
-	}
+    @Min(value = 0)
+    @Max(value = 50)        
+    @Column(name = "age")
+    private Integer age;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Pattern(regexp = "(^[m|f]$)")        
+    @Column(name = "gender")
+    private String gender;
 
-	public String getSpecies() {
-		return species;
-	}
+    @NotNull        
+    @Column(name = "size", nullable = false)
+    private String size;
+    
+    @Column(name = "description")
+    private String description;
 
-	public void setSpecies(String species) {
-		this.species = species;
-	}
+    @ManyToOne
+    private User have;
 
-	public int getAge() {
-		return age;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getGender() {
-		return gender;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getSize() {
-		return size;
-	}
+    public String getSpecies() {
+        return species;
+    }
 
-	public void setSize(String size) {
-		this.size = size;
-	}
+    public void setSpecies(String species) {
+        this.species = species;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public Integer getAge() {
+        return age;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
-	public User getFoundation() {
-		return foundation;
-	}
+    public String getGender() {
+        return gender;
+    }
 
-	public void setFoundation(User foundation) {
-		this.foundation = foundation;
-	}
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public User getHave() {
+        return have;
+    }
+
+    public void setHave(User user) {
+        this.have = user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Adoption adoption = (Adoption) o;
+
+        if ( ! Objects.equals(id, adoption.id)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Adoption{" +
+                "id=" + id +
+                ", name='" + name + "'" +
+                ", species='" + species + "'" +
+                ", age='" + age + "'" +
+                ", gender='" + gender + "'" +
+                ", size='" + size + "'" +
+                ", description='" + description + "'" +
+                '}';
+    }
 }
