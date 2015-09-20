@@ -1,88 +1,245 @@
-<div>
+<!-- <div> -->
 
-    <h2>Adoptions</h2>
-    <jh-alert></jh-alert>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="adoption.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Adoption</span>
-                </button>
-            </div>
+<!--     <h2>Adoptions</h2> -->
+<!--     <jh-alert></jh-alert> -->
+<!--     <div class="container"> -->
+<!--         <div class="row"> -->
+<!--             <div class="col-md-4"> -->
+<!--                 <button class="btn btn-primary" ui-sref="adoption.new"> -->
+<!--                     <span class="glyphicon glyphicon-flash"></span> <span>Create a new Adoption</span> -->
+<!--                 </button> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+
+<!--     <div class="modal fade" id="deleteAdoptionConfirmation"> -->
+<!--         <div class="modal-dialog"> -->
+<!--             <div class="modal-content"> -->
+<!--                 <form name="deleteForm" ng-submit="confirmDelete(adoption.id)"> -->
+<!--                     <div class="modal-header"> -->
+<!--                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" -->
+<!--                                 ng-click="clear()">&times;</button> -->
+<!--                         <h4 class="modal-title">Confirm delete operation</h4> -->
+<!--                     </div> -->
+<!--                     <div class="modal-body"> -->
+<!--                         <p>Are you sure you want to delete this Adoption?</p> -->
+<!--                     </div> -->
+<!--                     <div class="modal-footer"> -->
+<!--                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()"> -->
+<!--                             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span> -->
+<!--                         </button> -->
+<!--                         <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger"> -->
+<!--                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span> -->
+<!--                         </button> -->
+<!--                     </div> -->
+<!--                 </form> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+
+<!--     <div class="table-responsive"> -->
+<!--         <table class="table table-striped"> -->
+<!--             <thead> -->
+<!--                 <tr> -->
+<!--                     <th>ID</th> -->
+<!--                     <th>Name</th> -->
+<!--                     <th>Species</th> -->
+<!--                     <th>Age</th> -->
+<!--                     <th>Gender</th> -->
+<!--                     <th>Size</th> -->
+<!--                     <th>Description</th> -->
+<!--                     <th>have</th> -->
+<!--                     <th></th> -->
+<!--                 </tr> -->
+<!--             </thead> -->
+<!--             <tbody> -->
+<!--                 <tr ng-repeat="adoption in adoptions"> -->
+<!--                     <td><a ui-sref="adoption.detail({id:adoption.id})">{{adoption.id}}</a></td> -->
+<!--                     <td>{{adoption.name}}</td> -->
+<!--                     <td>{{adoption.species}}</td> -->
+<!--                     <td>{{adoption.age}}</td> -->
+<!--                     <td>{{adoption.gender}}</td> -->
+<!--                     <td>{{adoption.size}}</td> -->
+<!--                     <td>{{adoption.description}}</td> -->
+<!--                     <td> -->
+<!--                         {{adoption.have.id}} -->
+<!--                     </td> -->
+<!--                     <td> -->
+<!--                         <button type="submit" -->
+<!--                                 ui-sref="adoption.detail({id:adoption.id})" -->
+<!--                                 class="btn btn-info btn-sm"> -->
+<!--                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span> -->
+<!--                         </button> -->
+<!--                         <button type="submit" -->
+<!--                                 ui-sref="adoption.edit({id:adoption.id})" -->
+<!--                                 class="btn btn-primary btn-sm"> -->
+<!--                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span> -->
+<!--                         </button> -->
+<!--                         <button type="submit" -->
+<!--                                 ng-click="delete(adoption.id)" -->
+<!--                                 class="btn btn-danger btn-sm"> -->
+<!--                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span> -->
+<!--                         </button> -->
+<!--                     </td> -->
+<!--                 </tr> -->
+<!--             </tbody> -->
+<!--         </table> -->
+<!--     </div> -->
+<!-- </div> -->
+
+<article>
+  <!-- second nav bar with pag's choice -->
+  <nav class="navbar2 navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="imagen-logo" href="#">
+          <img src="../Img/logoOrca.jpeg" >  
+        </a>
+      </div>
+      <div>
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a href="#">Adopción</a></li>
+          <li role="presentation"><a href="../Sponsor/sponsor.html">Apadrinamiento</a></li> 
+          <li role="presentation"><a href="../Lost/lost.html">Desaparecidos</a></li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- panel with the form -->
+  <div class="panel panel-primary" >
+    <div class="panel-heading">Agrega una nueva mascota</div>
+    <div class="panel-body" style=" padding-top:5px">
+        <div class="media-left media-middle" >
+           <a href="#"  style="font-size:150px;">
+              <img class="thePhoto" id="theImage" src=" ">
+          </a>
+          
+          <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt=""/>
         </div>
+        <div class="media-body" style=" padding-top:25px">
+          <form name="myForm" class="format">
+           	<input type="text" class="form-control" id="id" name="id"
+                    ng-model="adoption.id" readonly ng-show="false">
+            Nombre: 
+            <input id="theName" ng-model="adoption.name" type="text" class="text-box distance" name="firstname" required>
+            <br>
+            Especie: 
+			<input id="theSpecie" ng-model="adoption.species" type="text" class="text-box distance" name="species" required placeholder='gato/perro'>
+            <br>
+            Edad:
+            <input id="theAge" type="number" ng-model="adoption.age" min="1" max="50" class="text-box distance2" name="age" required="required" >
+            <br>
+            Genero:
+            <input id="male" type="radio" ng-model="adoption.gender" name="sex" value="m" style="margin-left:45px; margin-top:15px;" checked> Macho
+            <input id="female" type="radio" ng-model="adoption.gender" name="sex" value="f" style="margin-left:15px; margin-top:15px;"> Hembra
+            <br>
+            Tamaño:
+            <input id="small" type="radio" ng-model="adoption.size" name="size" value="small" style="margin-left:40px; margin-top:15px;" checked> Pequeño
+            <input id="medium" type="radio" ng-model="adoption.size" name="size" value="medium" style="margin-left:15px; margin-top:15px;"> Mediano
+            <input id="large" type="radio" ng-model="adoption.size" name="size" value="large" style="margin-left:15px; margin-top:15px;"> Grande
+            <br>
+            Descripción:
+            <input id="theDescription" ng-model="adoption.description" type="text" class="text-box descriptionDistance" name="description" required="required">
+            
+          </form>
+            <button class="btn-img btn-success btn-md" style="margin-left:15px; margin-top:15px;"> Limpiar </button>
+            
+            <button class="btn-img btn-success btn-md" style="margin-left:15px; margin-top:15px;" ng-click="saveAdoption(adoption)"> Finalizar </button>
+             <p id="demo"> </p>
+       </div>
     </div>
-
-    <div class="modal fade" id="deleteAdoptionConfirmation">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form name="deleteForm" ng-submit="confirmDelete(adoption.id)">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                                ng-click="clear()">&times;</button>
-                        <h4 class="modal-title">Confirm delete operation</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to delete this Adoption?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-                        </button>
-                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span>
-                        </button>
-                    </div>
-                </form>
+  </div>
+  
+  <!-- Bad practice this have to be change, once db be ready -->
+  <div class="center-div">
+      <div class="alert" role="alert">
+          <div class="media">
+            <div class="media-left media-middle">
+              <a class="icon-adoption" href="#"> 
+                <img class="murray" src="../Img/adopt-cat.jpg" alt="...">
+              </a>
             </div>
-        </div>
-    </div>
+            <div class="media-body">
+              <h2 class="media-heading">Murray</h2>
+              <h4> Edad: <small> 25 meses</small> </h4>
+              <h4> Genero: <small> Macho </small> </h4>
+              <h4> Tamaño: <small> Mediano </small> </h4>
+              <p style="color:black"> Murray fue abandonado a su suerte en una casa en compañía de Niño y                 Señor Giz. Es un hermoso peludo positivo a leucemia felina. 
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Species</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Size</th>
-                    <th>Description</th>
-                    <th>have</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="adoption in adoptions">
-                    <td><a ui-sref="adoption.detail({id:adoption.id})">{{adoption.id}}</a></td>
-                    <td>{{adoption.name}}</td>
-                    <td>{{adoption.species}}</td>
-                    <td>{{adoption.age}}</td>
-                    <td>{{adoption.gender}}</td>
-                    <td>{{adoption.size}}</td>
-                    <td>{{adoption.description}}</td>
-                    <td>
-                        {{adoption.have.id}}
-                    </td>
-                    <td>
-                        <button type="submit"
-                                ui-sref="adoption.detail({id:adoption.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="adoption.edit({id:adoption.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ng-click="delete(adoption.id)"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+              Ha pasado algunos días en tratamiento por una pequeña gripa que le dio. Es un gatito        demasiado tierno, le gusta mucho dormir encima de las personas y estar cargado, es muy juicioso y ordenado  para comer, deja todo impecable.
+              En el momento Murray comparte hogar de paso con Nemo y sigue esperando por un hogar definitivo. </p>
+            </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="center-div">
+      <div class="alert" role="alert">
+          <div class="media">
+            <div class="media-left media-middle">
+              <a class="icon-adoption" href="#"> 
+                <img class="applejack" src="../Img/adopt-dog.jpg" alt="...">
+              </a>
+            </div>
+            <div class="media-body">
+              <h2 class="media-heading">Applejack</h2>
+              <h4> Edad: <small> 24 meses</small> </h4>
+              <h4> Genero: <small> Hembra </small> </h4>
+              <h4> Tamaño: <small> Mediano </small> </h4>
+              <p style="color:black"> Applejack es una perrita de aproximadamente 2 años de edad, de tamaño mediano, rescatada de las calles. Los vecinos del sector donde estaba le daban comidita pero nadie le había brindado cobijo y esta hermosa se encontraba esperando hijitos. 
+
+Applejack llegó a nuestro cuidado y afortunadamente sus 7 hijitos pudieron nacer alejados de las calles. Sus pequeños nacieron el martes 21 de julio y ya sólo faltan 2 peluditos por encontrar hogar. 
+
+Buscamos hogar de paso o definitivo para Applejack, ahora que ha cumplido su tarea de mamá juiciosa. Ayúdanos a darle una oportunidad a esta hermosa, que aunque es algo tímida, con seguridad puede ser la mejor amiga de tu familia.</p>
+            </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="center-div">
+      <div class="alert" role="alert">
+          <div class="media">
+            <div class="media-left media-middle">
+              <a class="icon-adoption" href="#"> 
+                <img class="applejack" src="../Img/adopt-dog2.jpg" alt="...">
+              </a>
+            </div>
+            <div class="media-body">
+              <h2 class="media-heading">Julieta</h2>
+              <h4> Edad: <small> 24 meses</small> </h4>
+              <h4> Genero: <small> Hembra </small> </h4>
+              <h4> Tamaño: <small> Mediano </small> </h4>
+              <p style="color:black"> Julieta es una perrita de tamaño mediano, de unos 2 años de edad que está a la espera de un hogar por siempre. 
+
+Fue encontrada en la mitad de las calles, asustada y cojeando. Una voluntaria le brindó comida y agua y se ganó su confianza para poder rescatarla. Tenía las patitas lastimadas, tal vez de estar en las calles caminando. 
+
+Esta hermosa ya está lista para hacer parte de una familia, y por el momento, necesita hogar de paso. Es muy activa, le encanta jugar y salir a dar paseos. </p>
+            </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="center-div">
+      <div class="alert" role="alert">
+          <div class="media">
+            <div class="media-left media-middle">
+              <a class="icon-adoption" href="#"> 
+                <img class="murray" src="../Img/adopt-cat3.jpg" alt="...">
+              </a>
+            </div>
+            <div class="media-body">
+              <h2 class="media-heading">Mandy</h2>
+              <h4> Edad: <small> 28 meses</small> </h4>
+              <h4> Genero: <small> Hembra </small> </h4>
+              <h4> Tamaño: <small> Mediano </small> </h4>
+              <p style="color:black"> Esta hermosa es Mandy, una gatita rescatada cuando estaba esperando hijitos. Se encontraba viviendo en un lugar donde estaba expuesta a los riesgos de las calles y a seguir teniendo hijitos con frecuencia.
+Sus pequeños ya fueron adoptados y ahora Mandy está lista para hacer parte de una familia por siempre.
+
+Mandy es una gatita joven y cariñosa. Se encuentra en guardería mientras llega para ella una familia que la ame mucho y la cuide por el resto de sus días.  </p>
+            </div>
+          </div>
+      </div>
+  </div>
+</article>
+

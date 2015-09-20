@@ -235,4 +235,159 @@ body{
 .thumbnail img{
 }
 
+body{
+ background-color: white;
+}
 
+.navbar .container-fluid{
+    background-color: white;
+}
+
+.options-guides{
+    background-color:#efefef;
+    border-bottom: 1px solid #dbdbdb;
+}
+.options-guides h2{
+    color:#393c3d;
+    font-size: 24px;
+}
+.options-guides p{
+    font-size:15px;
+    margin-bottom:13px;
+}
+.input-group{
+    margin-top: 10px;
+}
+.dropdown{
+    margin-right: 25px;
+}
+
+.row .thumbnail img{
+    position: relative;
+    float: left;
+    width:  400px;
+    height: 200px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+
+.col-lg-6{
+   margin-left: 200px;
+   margin-right: 200px;
+}
+
+.panel{
+    width: 80%;
+    position: relative;
+    margin: auto;
+    top:-5px;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #87CEFA;
+}
+
+.center-div{
+    width: 80%;
+    margin: auto;
+}
+.icon-adoption .murray{
+    width: 190px;
+    height: 150px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.icon-adoption .applejack{
+    width: 160px;
+    height: 200px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+small{
+    color: black;
+    padding: 2px;
+}
+.imagen-logo img{
+    width: 55px;
+    height: 55px;
+     -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+}
+.navbar2{
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    padding-bottom: 10px;
+    background-color: #87CEFA;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.navbar2 .nav{
+    margin-left: 50px;
+    float: right;
+    
+}
+.navbar2 .nav a{
+    font-size: 20px;
+    text-align: center;
+    text-decoration-color: black;
+    color: black;
+    margin-left: auto;
+}
+.navbar2 .nav a:hover { 
+    background-color:#B2DFEE;
+}
+.glyphicon-add{
+    width: 100px;
+    height: 100px;
+}
+
+.btn-img{
+    font-size:20px; 
+    top: 250px;
+    margin-top: 15px;
+    float: right;
+    align-items: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.format{
+    margin-left: 15px;
+    margin-top: 5px;
+    
+}
+
+.alert{
+    background-color: #efefef;
+}
+.text-box{
+    
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.distance{
+    margin-left:40px; 
+    margin-top:15px; 
+}
+.distance2{
+    margin-left:58px; 
+    margin-top:15px; 
+}
+.descriptionDistance{
+    margin-left:15px; 
+    margin-top:15px; 
+    width:500px; 
+    height:70px 
+}
+:required {
+   border: 1px solid gray;
+}
+.thePhoto{
+    width: 200px;
+    height: 200px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 2px solid #000000;
+}
