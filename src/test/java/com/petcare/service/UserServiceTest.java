@@ -6,6 +6,7 @@ import com.petcare.repository.UserRepository;
 import org.joda.time.DateTime;
 import com.petcare.service.util.RandomUtil;
 import org.joda.time.LocalDate;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.IntegrationTest;
@@ -29,6 +30,7 @@ import static org.assertj.core.api.Assertions.*;
 @WebAppConfiguration
 @IntegrationTest
 @Transactional
+@Ignore
 public class UserServiceTest {
 
     @Inject

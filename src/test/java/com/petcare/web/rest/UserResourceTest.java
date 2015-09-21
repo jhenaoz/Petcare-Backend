@@ -3,6 +3,7 @@ package com.petcare.web.rest;
 import com.petcare.Application;
 import com.petcare.repository.UserRepository;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.IntegrationTest;
@@ -28,6 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest
+@Ignore
 public class UserResourceTest {
 
     @Inject

@@ -10,6 +10,7 @@ import com.petcare.service.MailService;
 import com.petcare.service.UserService;
 import com.petcare.web.rest.dto.UserDTO;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -49,6 +50,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest
+@Ignore
 public class AccountResourceTest {
 
     @Inject
