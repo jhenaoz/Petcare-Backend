@@ -7,7 +7,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/"><span>jhipster</span> <span class="navbar-version">v{{VERSION}}</span></a>
+            <a class="navbar-brand" href="#/">
+            <!-- <span>jhipster</span> <span class="navbar-version">v{{VERSION}}</span>  -->
+            	<img class="img-logo">
+            </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="isAuthenticated()">
             <ul class="nav navbar-nav nav-pills navbar-right">
@@ -22,14 +25,14 @@
                                 <span>
                                     <span class="glyphicon glyphicon-th-list"></span>
                                     <span class="hidden-tablet">
-                                        Entities
+                                        Opciones
                                     </span>
                                     <b class="caret"></b>
                                 </span>
                     </a>
                     <ul class="dropdown-menu">
                         <li ui-sref-active="active" ><a ui-sref="adoption"><span class="glyphicon glyphicon-asterisk"></span>
-                        &#xA0;<span >adoption</span></a></li>
+                        &#xA0;<span >Adopción</span></a></li>
                         <!-- JHipster will add entities to the menu here -->
                     </ul>
                 </li>

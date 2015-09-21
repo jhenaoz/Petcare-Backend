@@ -174,9 +174,8 @@ body{
 .navbar {
   margin-bottom: 0px;
 }
-
 .jumbotron {
-  background-image:url('../images/01159-Puppies-playing-with-a-fluffy-ball.jpg');
+  background-image:url('../images/IMG_1560.JPG');
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -244,7 +243,7 @@ body{
 }
 
 .jumbotron {
-  background-image:url('Img/IMG_1560.JPG');
+  background-image:url('../images/IMG_1560.JPG');
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -299,9 +298,8 @@ body{
    margin-left: 200px;
    margin-right: 200px;
 }
-panel{
+.panel{
     width: 80%;
-    position: relative;
     margin: auto;
     top:-5px;
     padding-bottom: 20px;
@@ -332,10 +330,12 @@ small{
     padding: 2px;
 }
 .imagen-logo img{
+	background-image:url('../images/logoOrca.jpg');
     width: 55px;
     height: 55px;
-     -moz-border-radius: 100px;
+    -moz-border-radius: 100px;
     -webkit-border-radius: 100px;
+    
 }
 .navbar2{
     width: 80%;
@@ -440,4 +440,20 @@ small{
     background: white;
     cursor: inherit;
     display: block;
+}
+
+.img-adoption{
+	background-image:url('../images/Adoption-img.jpg');
+}
+.img-sponsor{
+	background-image:url('../images/Sponsor-img.jpg');
+}
+.img-lost{
+	background-image:url('../images/lost-img.jpg');
+}
+.img-logoOrca{
+	background-image:url('../images/logoOrca.jpg');
+}
+.img-logo{
+	background-image:url('../images/petCareIcon.png');
 }

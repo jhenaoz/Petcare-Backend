@@ -93,14 +93,14 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="imagen-logo" href="#">
-          <img src="../Img/logoOrca.jpeg" >  
+          <img class="img-logoOrca" >
         </a>
       </div>
       <div>
         <ul class="nav nav-pills">
           <li role="presentation" class="active"><a href="#">Adopción</a></li>
-          <li role="presentation"><a href="../Sponsor/sponsor.html">Apadrinamiento</a></li> 
-          <li role="presentation"><a href="../Lost/lost.html">Desaparecidos</a></li> 
+          <li role="presentation"><a ui-sref="#">Apadrinamiento</a></li> 
+          <li role="presentation"><a ui-sref="#">Desaparecidos</a></li> 
         </ul>
       </div>
     </div>
@@ -125,7 +125,7 @@
             <input id="theName" ng-model="adoption.name" type="text" class="text-box distance" name="firstname" required>
             <br>
             Especie: 
-             <input id="male" type="radio" ng-model="adoption.species" name="species" value="dog" style="margin-left:45px; margin-top:15px;" checked> Perro
+             <input id="male" type="radio" ng-model="adoption.species" name="species" value="dog" style="margin-left:40px; margin-top:15px;" checked> Perro
             <input id="female" type="radio" ng-model="adoption.species" name="species" value="cat" style="margin-left:15px; margin-top:15px;"> Gato
 			 <br>
             Edad:
@@ -144,9 +144,9 @@
             <input id="theDescription" ng-model="adoption.description" type="text" class="text-box descriptionDistance" name="description" required="required">
             
           </form>
-            <button class="btn-img btn-success btn-md" style="margin-left:15px; margin-top:15px;"> Limpiar </button>
+            <button class="btn-img btn-primary btn-md" style="margin-left:15px; margin-top:15px;" ng-click="clean()"> Limpiar </button>
             
-            <button class="btn-img btn-success btn-md" style="margin-left:15px; margin-top:15px;" ng-click="save()"> Finalizar </button>
+            <button class="btn-img btn-primary btn-md" style="margin-left:15px; margin-top:15px;" ng-click="save()"> Finalizar </button>
              <p id="demo"> </p>
        </div>
     </div>
