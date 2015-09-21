@@ -111,16 +111,16 @@
     <div class="panel-heading">Agrega una nueva mascota</div>
     <div class="panel-body" style=" padding-top:5px">
         <div class="media-left media-middle" >
-           <a href="#"  style="font-size:150px;">
-              <img class="thePhoto" id="theImage" src=" ">
+          <a href="#"  style="font-size:150px;">
+            <img class="thePhoto" id="theImage" src=" ">
           </a>
           
           <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt=""/>
         </div>
         <div class="media-body" style=" padding-top:25px">
           <form name="myForm" class="format">
-           	<input type="text" class="form-control" id="id" name="id"
-                    ng-model="adoption.id" readonly ng-show="false">
+           	<input type="text" class="form-control" id="id" name="id" 
+              ng-model="adoption.id" readonly ng-show="false">
             Nombre: 
             <input id="theName" ng-model="adoption.name" type="text" class="text-box distance" name="firstname" required>
             <br>
@@ -145,14 +145,14 @@
           </form>
             <button class="btn-img btn-success btn-md" style="margin-left:15px; margin-top:15px;"> Limpiar </button>
             
-            <button class="btn-img btn-success btn-md" style="margin-left:15px; margin-top:15px;" ng-click="saveAdoption(adoption)"> Finalizar </button>
+            <button class="btn-img btn-success btn-md" style="margin-left:15px; margin-top:15px;" ng-click="save()"> Finalizar </button>
              <p id="demo"> </p>
        </div>
     </div>
   </div>
   
   <!-- Bad practice this have to be change, once db be ready -->
-  <div class="center-div">
+  <div class="center-div" ng-repeat="pet in adoptions track by $index">
       <div class="alert" role="alert">
           <div class="media">
             <div class="media-left media-middle">
@@ -161,19 +161,16 @@
               </a>
             </div>
             <div class="media-body">
-              <h2 class="media-heading">Murray</h2>
-              <h4> Edad: <small> 25 meses</small> </h4>
-              <h4> Genero: <small> Macho </small> </h4>
-              <h4> Tamaño: <small> Mediano </small> </h4>
-              <p style="color:black"> Murray fue abandonado a su suerte en una casa en compañía de Niño y                 Señor Giz. Es un hermoso peludo positivo a leucemia felina. 
-
-              Ha pasado algunos días en tratamiento por una pequeña gripa que le dio. Es un gatito        demasiado tierno, le gusta mucho dormir encima de las personas y estar cargado, es muy juicioso y ordenado  para comer, deja todo impecable.
-              En el momento Murray comparte hogar de paso con Nemo y sigue esperando por un hogar definitivo. </p>
+              <h2 class="media-heading">{{pet.name}}</h2>
+              <h4> Edad: <small> {{pet.age}}</small> </h4>
+              <h4> Genero: <small> {{pet.gender}} </small> </h4>
+              <h4> Tamaño: <small> {{pet.size}} </small> </h4>
+              <p style="color:black">{{pet.description}} </p>
             </div>
           </div>
       </div>
   </div>
-  
+  <!-- 
   <div class="center-div">
       <div class="alert" role="alert">
           <div class="media">
@@ -240,6 +237,6 @@ Mandy es una gatita joven y cariñosa. Se encuentra en guardería mientras llega
             </div>
           </div>
       </div>
-  </div>
+  </div> -->
 </article>
 

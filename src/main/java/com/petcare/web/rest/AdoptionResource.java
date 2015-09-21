@@ -76,11 +76,11 @@ public class AdoptionResource {
     @Timed
     public List<Adoption> getAll() {
         log.debug("REST request to get all Adoptions");
-        return adoptionRepository.findAll();
+        return adoptionRepository.findByHaveIsCurrentUser();
     }
 
     /**
-     * GET  /adoptions/:id -> get the "id" adoption.
+     * GET  /adoptions/:id -> get the "id" of the user.
      */
     @RequestMapping(value = "/adoptions/{id}",
             method = RequestMethod.GET,

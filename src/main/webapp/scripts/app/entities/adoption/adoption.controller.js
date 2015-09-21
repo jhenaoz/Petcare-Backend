@@ -1,14 +1,30 @@
 'use strict';
 
 angular.module('petcareApp')
-    .controller('AdoptionController', function ($scope, Adoption) {
+    .controller('AdoptionController', function ($scope, Adoption, Principal, User) {
     	$scope.adoption = {};
+
+        Adoption.query(function(result) {
+           $scope.adoptions = result;
+        });
+        Principal.identity(true).then(function(response){
+            User.get({login:response.login}, function(currentUser){
+                $scope.user = currentUser;
+                $scope.adoption.have = currentUser;
+            });
+        })
     	
     	$scope.save = function(adoption){
             if ($scope.adoption.id != null) {
-                Adoption.update($scope.adoption, onSaveFinished);
+                Adoption.update($scope.adoption, function(result){
+                    console.log(result);
+                });
             } else {
-                Adoption.save($scope.adoption, onSaveFinished);
+                Adoption.save($scope.adoption, function(result){
+                    console.log(result);
+                    alert('Guardado Exitoso');
+                    $scope.adoption = {};
+                });
             }
     	};
     	
