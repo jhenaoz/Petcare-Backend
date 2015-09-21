@@ -243,7 +243,7 @@ body{
 }
 
 .jumbotron {
-  background-image:url('../images/IMG_1560.JPG');
+  background-image:url('../images/Index-img.JPG');
   height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -455,5 +455,5 @@ small{
 	background-image:url('../images/logoOrca.jpg');
 }
 .img-logo{
-	background-image:url('../images/petCareIcon.png');
+	background-image:url('../images/PetCare-icon.jpg');
 }

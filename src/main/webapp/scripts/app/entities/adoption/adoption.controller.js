@@ -29,7 +29,6 @@ angular.module('petcareApp')
     	};
     	
     	
-    	
 //        $scope.adoptions = [];
 //        $scope.loadAll = function() {
 //            Adoption.query(function(result) {
