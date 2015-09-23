@@ -454,6 +454,6 @@ small{
 .img-logoOrca{
 	background-image:url('../images/logoOrca.jpg');
 }
-.img-logo{
-	background-image:url('../images/PetCare-icon.jpg');
+.navbar-brand{
+	background-image:url('../images/petCareIcon.png');
 }
