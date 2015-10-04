@@ -195,78 +195,7 @@ ul#strengthBar {
 	opacity: 1;
 }
 
-body {
-	background-color: white;
-}
 
-.navbar {
-	margin-bottom: 0em;
-}
-
-.jumbotron {
-	background-image: url('../images/IMG_1560.JPG');
-	height: 33.333em;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.jumbotron .container {
-	position: relative;
-	top: 6.667em;
-}
-
-.jumbotron h1 {
-	color: #fff;
-	font-size: 3.2em;
-	font-family: 'Shift', sans-serif;
-	font-weight: bold;
-}
-
-.jumbotron p {
-	font-size: 1.33em;
-	color: #fff;
-}
-
-.learn-more {
-	background-color: #f7f7f7;
-}
-
-.learn-more h3 {
-	font-family: 'Shift', sans-serif;
-	font-size: 1.2em;
-	font-weight: bold;
-}
-
-.learn-more a {
-	color: #00b0ff;
-}
-
-.neighborhood-guides {
-	background-color: #efefef;
-	border-bottom: 0.067em solid #dbdbdb;
-}
-
-.neighborhood-guides h2 {
-	color: #393c3d;
-	font-size: 1.6em;
-}
-
-.neighborhood-guides p {
-	font-size: 1em;
-	margin-bottom: 0.867em;
-}
-
-.input-group {
-	margin-top: 0.667em;
-}
-
-.dropdown {
-	margin-right: 1.667em;
-}
-
-.thumbnail img {
-	
-}
 
 body {
 	background-color: white;
@@ -587,5 +516,17 @@ small {
   #panel .media-left input[type="file"] {
     width: 40%;
     display: block;
+  }
+}
+/*
+#jumbotron-image .jumbotron {
+	background-image: url('../images/Index-img.JPG');
+	height: 33.333em;
+	background-repeat: no-repeat;
+	background-size: cover;
+}*/
+@media (min-width: 700px) {
+  #jumbotron-image {
+   	background-size: contain;
   }
 }
