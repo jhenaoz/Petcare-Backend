@@ -9,11 +9,11 @@ spring:
         active: prod
     datasource:
         dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-        url: jdbc:mysql://localhost:3306/petcare?useUnicode=true&characterEncoding=utf8
-        databaseName: 
+        url: jdbc:mysql://petcare.cj6twuidapzs.us-west-2.rds.amazonaws.com:3306/petcare
+        databaseName: petcare
         serverName: 
-        username: root
-        password: 
+        username: admin
+        password: petcare123
         cachePrepStmts: true
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
