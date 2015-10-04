@@ -1,0 +1,172 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myLostLabel">Create or edit a Lost</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="lost.id" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="lost.name"
+                    required>
+
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_species">Species</label>
+            <input type="text" class="form-control" name="species" id="field_species"
+                    ng-model="lost.species"
+                    required>
+
+            <div ng-show="editForm.species.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.species.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_age">Age</label>
+            <input type="number" class="form-control" name="age" id="field_age"
+                    ng-model="lost.age"
+                    required>
+
+            <div ng-show="editForm.age.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.age.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.age.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_gender">Gender</label>
+            <input type="text" class="form-control" name="gender" id="field_gender"
+                    ng-model="lost.gender"
+                    required ng-pattern="/(^[m|f]$)/">
+
+            <div ng-show="editForm.gender.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.gender.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.gender.$error.pattern" translate-value-pattern="(^[m|f]$)">
+                    This field should follow pattern "(^[m|f]$)".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_size">Size</label>
+            <input type="text" class="form-control" name="size" id="field_size"
+                    ng-model="lost.size"
+                    required>
+
+            <div ng-show="editForm.size.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.size.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="lost.description"
+                    >
+
+        </div>
+        <div class="form-group">
+            <label for="field_phone">Phone</label>
+            <input type="number" class="form-control" name="phone" id="field_phone"
+                    ng-model="lost.phone"
+                    required>
+
+            <div ng-show="editForm.phone.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.phone.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.phone.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_lostDate">LostDate</label>
+            <input type="date" class="form-control" name="lostDate" id="field_lostDate"
+                    ng-model="lost.lostDate"
+                    required>
+
+            <div ng-show="editForm.lostDate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.lostDate.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="setImage($files, lost)" ngf-accept="'image/*'">
+            <label for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:image/*;base64,' + lost.image}}" style="max-height: 100px;" ng-if="lost.image"/>
+                <div class="help-block clearfix">
+                    <span class="pull-left">{{byteSize(lost.image)}}</span>
+                    <button ng-click="lost.image=null"
+                            ng-if="lost.image"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="setImage($files, lost)" accept="image/*">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="lost.image"
+                    required>
+
+            <div ng-show="editForm.image.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.image.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field_have">have</label>
+            
+            <select class="form-control" id="field_have" name="have" ng-model="lost.have" ng-options="user as user.id for user in users track by user.id">
+                <option value=""></option>
+            </select>
+            
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
