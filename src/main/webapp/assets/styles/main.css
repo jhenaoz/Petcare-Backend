@@ -212,6 +212,12 @@ body {
 	background-size: cover;
 }
 
+@media (max-width: 800px) {
+  #jumbotron-image {
+   	background-size: contain;
+  }
+}
+
 .jumbotron .container {
 	position: relative;
 	top: 6.667em;
@@ -300,13 +306,13 @@ small {
 	padding: 0.133em;
 }
 
-.imagen-logo img {
+/*.imagen-logo img {
 	background-image: url('../images/logoOrca.jpg');
 	width: 3.667em;
 	height: 3.667em;
 	-moz-border-radius: 6.667em;
 	-webkit-border-radius: 6.667em;
-}
+}*/
 
 .navbar2 {
 	width: 80%;
@@ -422,9 +428,16 @@ small {
 	display: block;
 }
 
+@media (max-width: 770px) {
+  #options-guides thumbnail{
+  	display: block;
+  }
+}
+
 .img-adoption {
 	background-image: url('../images/Adoption-img.jpg');
 }
+
 
 .img-sponsor {
 	background-image: url('../images/Sponsor-img.jpg');
@@ -516,17 +529,5 @@ small {
   #panel .media-left input[type="file"] {
     width: 40%;
     display: block;
-  }
-}
-/*
-#jumbotron-image .jumbotron {
-	background-image: url('../images/Index-img.JPG');
-	height: 33.333em;
-	background-repeat: no-repeat;
-	background-size: cover;
-}*/
-@media (min-width: 700px) {
-  #jumbotron-image {
-   	background-size: contain;
   }
 }
