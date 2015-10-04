@@ -5,6 +5,7 @@ import com.petcare.domain.Sponsor;
 import com.petcare.repository.SponsorRepository;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.hamcrest.Matchers.hasItem;
@@ -38,6 +39,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest
+@Ignore
 public class SponsorResourceTest {
 
     private static final String DEFAULT_NAME = "SAMPLE_TEXT";
