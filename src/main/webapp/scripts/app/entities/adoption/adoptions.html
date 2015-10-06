@@ -19,7 +19,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title">Confirm delete operation</h4>
+                        <h4 class="modal-title">Confirmación para eliminar </h4>
                     </div>
                     <div class="modal-body">
                         <p>¿Esta seguro que desea eliminar esta mascota para adopción?</p>
@@ -89,22 +89,25 @@
 
 <article>
   <!-- second nav bar with pag's choice -->
-  <nav class="navbar2 navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="imagen-logo" href="#">
-          <img class="img-logoOrca" >
-        </a>
-      </div>
-      <div>
-        <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="#">Adopción</a></li>
-          <li role="presentation"><a ui-sref="sponsor">Apadrinamiento</a></li> 
-          <li role="presentation"><a ui-sref="lost">Desaparecidos</a></li> 
-        </ul>
-      </div>
-    </div>
-  </nav>
+ <nav class="navbar2 navbar-default" >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+        </div>
+    
+	   <div class="collapse navbar-collapse" id="navbar-collapse2" >
+	     <ul class="nav nav-pills">
+	      <li role="presentation" class="active"><a ui-sref="#">Adopción</a></li>
+	      <li role="presentation" ><a ui-sref="sponsor">Apadrinamiento</a></li> 
+	      <li role="presentation" ><a ui-sref="lost">Extraviados</a></li> 
+	     </ul>
+	   </div>
+   </nav>
   
   <!-- panel with the form -->
   <div class="panel panel-primary" id="panel">
@@ -118,44 +121,43 @@
           <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt=""/>
         </div>
         <div class="media-body" style=" padding-top:1.67em">
-          <form name="myForm" class="format" id="pet-form">
+          <form name="myForm" class="format has-error" id="pet-form">
            	<input type="text" class="form-control" id="id" name="id" ng-model="adoption.id" readonly ng-show="false">
            	<div class="divSets">
-	            <span>Nombre:</span>
+	            <span style="font-weight: bold;">Nombre:</span>
 	            <input id="theName" ng-model="adoption.name" type="text" class="text-box" name="firstname" required>
-	            <input id="male" type="radio" ng-model="adoption.species" name="species" value="dog" checked> Perro
-	            <input id="female" type="radio" ng-model="adoption.species" name="species" value="cat"> Gato
+	            <input id="dog" type="radio" ng-model="adoption.species" name="species" value="dog"  checked> Perro
+	            <input id="cat" type="radio" ng-model="adoption.species" name="species" value="cat" style="margin-left:2.64em"> Gato
 			</div>
 			
 			<div class="divSets">
-	             <span>Edad:</span>
+	             <span style="font-weight: bold;">Edad:</span>
 	             <input id="theAge" type="number" ng-model="adoption.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
             </div>
             
             <div class="divSets">
-	             <span>Genero:</span>
+	             <span style="font-weight: bold;">Genero:</span>
 	             <div>
-			         <input id="male" type="radio" ng-model="adoption.gender" name="sex" value="m"  checked> Macho
-			         <input id="female" type="radio" ng-model="adoption.gender" name="sex" value="f" > Hembra
+			         <input id="male" type="radio" ng-model="adoption.gender" name="sex" value="m"  checked required> Macho
+			         <input id="female" type="radio" ng-model="adoption.gender" name="sex" value="f" style="margin-left:1.93em" > Hembra
            		</div>
             </div>
             
             <div class="divSets">
-	            <span>Tamaño:</span>
+	            <span style="font-weight: bold;">Tamaño:</span>
 	            <div>
-		            <input id="small" type="radio" ng-model="adoption.size" name="size" value="small" checked> Pequeño
-		            <input id="medium" type="radio" ng-model="adoption.size" name="size" value="medium" > Mediano
-		            <input id="large" type="radio" ng-model="adoption.size" name="size" value="large" > Grande
+		            <input id="small" type="radio" ng-model="adoption.size" name="size" value="small" checked required> Pequeño
+		            <input id="medium" type="radio" ng-model="adoption.size" name="size" value="medium" style="margin-left:3em"> Mediano
+		            <input id="large" type="radio" ng-model="adoption.size" name="size" value="large" style="margin-left:1em"> Grande
            		</div>
             </div>
             
             <div class="divSets">
-	            	 <span>Descripción:</span>	            	
-	            	<textarea class="description"  rows="3" cols="50" ng-model="adoption.description" TextMode="MultiLine" required></textarea>
-
+	            	 <span style="font-weight: bold;">Descripción:</span>	            	
+	            	<textarea class="description"  rows="3" cols="50" ng-model="adoption.description" TextMode="MultiLine"  required></textarea>
             </div>
           </form>
-            <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="clean()"> Cancelar </button>
+            <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="clear()"> Cancelar </button>
             
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="save()"> Finalizar </button>
              <p id="demo"> </p>
@@ -174,9 +176,9 @@
             </div>
             <div class="media-body">
 	        	<button type="button" class="btn btn-alert" aria-label="Edit Pencil" style="float:right">
-	  				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+	  				<span class="glyphicon glyphicon-pencil" aria-hidden="true" ui-sref="adoption.edit({id:adoption.id})"></span>
 				</button>
-				<button type="button" class="btn btn-alert" aria-label="Edit Pencil" style="float:right; margin-right:0.2em" ng-click="chancho()">
+				<button type="button" class="btn btn-alert" aria-label="Edit Pencil" style="float:right; margin-right:0.2em" >
 	  				<span class="glyphicon glyphicon-trash" ng-click="remove(pet.id)" aria-hidden="true"></span>
 				</button>
 	            <h2 class="media-heading">{{pet.name}}</h2>

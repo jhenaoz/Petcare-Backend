@@ -16,7 +16,6 @@ angular.module('petcareApp')
                 });
             })            
         };
-
     	
     	$scope.save = function(adoption){
             if ($scope.adoption.id != null) {
@@ -33,6 +32,7 @@ angular.module('petcareApp')
                 });
             }
     	};
+    	
        $scope.remove = function (id) {
            Adoption.get({id: id}, function(result) {
                $scope.adoption = result;
@@ -48,7 +48,9 @@ angular.module('petcareApp')
                });
        };
     	
-    	
+       $scope.clear = function () {
+         $scope.adoption = {name: null, species: null, age: null, gender: null, size: null, description: null, id: null};
+     };
     	
 //        $scope.adoptions = [];
 //        $scope.loadAll = function() {
