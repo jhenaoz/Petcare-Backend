@@ -151,43 +151,43 @@
             <img class="thePhoto" id="theImage" src=" ">
           </a>
           
-          <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" />
+           <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" />
         </div>
         <div class="media-body" style=" padding-top:1.67em">
           <form name="myForm" class="format" id="pet-form">
            	<input type="text" class="form-control" id="id" name="id" ng-model="sponsor.id" readonly ng-show="false">
            	<div class="divSets">
-	            <span>Nombre:</span>
-	            <input id="theName" ng-model="sporsor.name" type="text" class="text-box" name="firstname" required>
-	            <input id="male" type="radio" ng-model="sporsor.species" name="species" value="dog" checked> Perro
-	            <input id="female" type="radio" ng-model="sporsor.species" name="species" value="cat"> Gato
+	            <span style="font-weight: bold;">Nombre:</span>
+	            <input id="theName" ng-model="sponsor.name" type="text" class="text-box" name="firstname" required>
+	            <input id="male" type="radio" ng-model="sponsor.species" name="species" value="dog" checked> Perro
+	            <input id="female" type="radio" ng-model="sponsor.species" name="species" value="cat"  style="margin-left:2.64em"> Gato
 			</div>
 			
 			<div class="divSets">
-	             <span>Edad:</span>
-	             <input id="theAge" type="number" ng-model="sporsor.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
+	             <span style="font-weight: bold;">Edad:</span>
+	             <input id="theAge" type="number" ng-model="sponsor.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
             </div>
             
             <div class="divSets">
-	             <span>Genero:</span>
+	             <span style="font-weight: bold;">Genero:</span>
 	             <div>
-			         <input id="male" type="radio" ng-model="sporsor.gender" name="sex" value="m"  checked> Macho
-			         <input id="female" type="radio" ng-model="sporsor.gender" name="sex" value="f" > Hembra
+			         <input id="male" type="radio" ng-model="sponsor.gender" name="sex" value="m"  checked> Macho
+			         <input id="female" type="radio" ng-model="sponsor.gender" name="sex" value="f"  style="margin-left:1.93em"> Hembra
            		</div>
             </div>
             
             <div class="divSets">
-	            <span>Tamaño:</span>
+	            <span style="font-weight: bold;">Tamaño:</span>
 	            <div>
-		            <input id="small" type="radio" ng-model="sporsor.size" name="size" value="small" checked> Pequeño
-		            <input id="medium" type="radio" ng-model="sporsor.size" name="size" value="medium" > Mediano
-		            <input id="large" type="radio" ng-model="sporsor.size" name="size" value="large" > Grande
+		            <input id="small" type="radio" ng-model="sponsor.size" name="size" value="small" checked> Pequeño
+		            <input id="medium" type="radio" ng-model="sponsor.size" name="size" value="medium"  style="margin-left:1em"> Mediano
+		            <input id="large" type="radio" ng-model="sponsor.size" name="size" value="large"  style="margin-left:1em" > Grande
            		</div>
             </div>
             
             <div class="divSets">
-	            	 <span>Descripción:</span>	            	
-	            	<textarea class="description"  rows="3" cols="50" ng-model="sporsor.description" TextMode="MultiLine" required></textarea>
+	            	 <span style="font-weight: bold;">Descripción:</span>	            	
+	            	<textarea class="description"  rows="3" cols="50" ng-model="sponsor.description" TextMode="MultiLine" required></textarea>
 
             </div>
           </form>

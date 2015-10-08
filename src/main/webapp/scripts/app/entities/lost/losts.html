@@ -158,42 +158,56 @@
             <img class="thePhoto" id="theImage" src=" ">
           </a>
           
-          <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt=""/>
+          <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" ng-model="lost.image"/>
         </div>
         <div class="media-body" style=" padding-top:1.67em">
           <form name="myForm" class="format" id="pet-form">
            	<input type="text" class="form-control" id="id" name="id" ng-model="lost.id" readonly ng-show="false">
            	<div class="divSets">
-	            <span>Nombre:</span>
+	            <span style="font-weight: bold;">Nombre:</span>
 	            <input id="theName" ng-model="lost.name" type="text" class="text-box" name="firstname" required>
 	            <input id="male" type="radio" ng-model="lost.species" name="species" value="dog" checked> Perro
-	            <input id="female" type="radio" ng-model="lost.species" name="species" value="cat"> Gato
+	            <input id="female" type="radio" ng-model="lost.species" name="species" value="cat" style="margin-left:2.64em"> Gato
 			</div>
 			
 			<div class="divSets">
-	             <span>Edad:</span>
+	             <span style="font-weight: bold;">Edad:</span>
 	             <input id="theAge" type="number" ng-model="lost.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
             </div>
             
             <div class="divSets">
-	             <span>Genero:</span>
+	             <span style="font-weight: bold;">Genero:</span>
 	             <div>
 			         <input id="male" type="radio" ng-model="lost.gender" name="sex" value="m"  checked> Macho
-			         <input id="female" type="radio" ng-model="lost.gender" name="sex" value="f" > Hembra
+			         <input id="female" type="radio" ng-model="lost.gender" name="sex" value="f"  style="margin-left:1.93em"> Hembra
            		</div>
             </div>
             
             <div class="divSets">
-	            <span>Tamaño:</span>
+	            <span style="font-weight: bold;">Tamaño:</span>
 	            <div>
 		            <input id="small" type="radio" ng-model="lost.size" name="size" value="small" checked> Pequeño
-		            <input id="medium" type="radio" ng-model="lost.size" name="size" value="medium" > Mediano
-		            <input id="large" type="radio" ng-model="lost.size" name="size" value="large" > Grande
+		            <input id="medium" type="radio" ng-model="lost.size" name="size" value="medium"  style="margin-left:1em"> Mediano
+		            <input id="large" type="radio" ng-model="lost.size" name="size" value="large"  style="margin-left:1em"> Grande
            		</div>
             </div>
             
             <div class="divSets">
-	            	 <span>Descripción:</span>	            	
+	             <span style="font-weight: bold;">Teléfono de contacto:</span>
+	             <div>
+	             	<input id="thePhone" type="tel" ng-model="lost.phone" min="1" max="10" class="text-box" name="phone" placeholder="Teléfono de contacto" required >
+            	</div>
+            </div>
+            
+            <div class="divSets">
+	             <span style="font-weight: bold;">Fecha desaparición:</span>
+	            <div>
+	             	<input id="theLostDate" type="date" ng-model="lost.lostDate" min="1" max="50" class="text-box" name="lostDate" placeholder="Fecha desaparición" required >
+            	</div>
+            </div>
+            
+            <div class="divSets">
+	            	<span style="font-weight: bold;">Descripción:</span>	            	
 	            	<textarea class="description"  rows="3" cols="50" ng-model="lost.description" TextMode="MultiLine" required></textarea>
 
             </div>
