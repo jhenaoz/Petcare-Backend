@@ -1,14 +1,43 @@
 'use strict';
 
 angular.module('petcareApp')
-    .controller('LostController', function ($scope, Lost) {
+    .controller('LostController', function ($scope, Lost, Principal, User ) {
+    	$scope.lost = {};
         $scope.losts = [];
-        $scope.loadAll = function() {
+        /*$scope.loadAll = function() {
             Lost.query(function(result) {
                $scope.losts = result;
             });
         };
-        $scope.loadAll();
+        $scope.loadAll();*/
+        
+        $scope.init = function(){
+            Lost.query(function(result) {
+               $scope.losts = result;
+            });
+            Principal.identity(true).then(function(response){
+                User.get({login:response.login}, function(currentUser){
+                    $scope.user = currentUser;
+                    $scope.lost.have = currentUser;
+                });
+            })            
+        };
+    	
+    	$scope.save = function(lost){
+            if ($scope.sponsor.id != null) {
+            	Lost.update($scope.lost, function(result){
+                    console.log(result);
+                    $scope.losts.push(result);
+                    $scope.lost = {};
+                });
+            } else {
+            	Lost.save($scope.lost, function(result){
+                    console.log(result);
+                    $scope.losts.push(result);
+                    $scope.lost = {};
+                });
+            }
+    	};
 
         $scope.delete = function (id) {
             Lost.get({id: id}, function(result) {
@@ -25,11 +54,11 @@ angular.module('petcareApp')
                     $scope.clear();
                 });
         };
-
+        /*
         $scope.refresh = function () {
             $scope.loadAll();
             $scope.clear();
-        };
+        };*/
 
         $scope.clear = function () {
             $scope.lost = {name: null, species: null, age: null, gender: null, size: null, description: null, phone: null, lostDate: null, image: null, id: null};
@@ -70,4 +99,7 @@ angular.module('petcareApp')
 
             return formatAsBytes(size(base64String));
         };
+        
+        
+        $scope.init();
     });

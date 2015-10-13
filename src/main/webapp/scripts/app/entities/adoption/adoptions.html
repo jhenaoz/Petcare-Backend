@@ -118,7 +118,6 @@
             <img class="thePhoto" id="theImage" src=" ">
           </a>
           
-          <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt=""/>
         </div>
         <div class="media-body" style=" padding-top:1.67em">
           <form name="myForm" class="format has-error" id="pet-form">
@@ -156,6 +155,15 @@
 	            	 <span style="font-weight: bold;">Descripción:</span>	            	
 	            	<textarea class="description"  rows="3" cols="50" ng-model="adoption.description" TextMode="MultiLine"  required></textarea>
             </div>
+            
+            <div class="divSets">
+            	<span style="font-weight: bold;">Foto:</span>
+            	<div>
+            		<input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" />
+            	</div>
+            	
+            </div>
+            
           </form>
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="clear()"> Cancelar </button>
             

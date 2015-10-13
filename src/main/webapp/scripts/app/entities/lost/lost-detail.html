@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span>Lost</span> {{lost.id}}</h2>
+    <h2><span>Extraviados</span> {{lost.id}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -12,7 +12,7 @@
             <tbody>
             <tr>
                 <td>
-                    <span>Name</span>
+                    <span>Nombre</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.name}}</span>
@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Species</span>
+                    <span>Especie</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.species}}</span>
@@ -28,7 +28,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Age</span>
+                    <span>Edad</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.age}}</span>
@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Gender</span>
+                    <span>Genero</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.gender}}</span>
@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Size</span>
+                    <span>Tamaño</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.size}}</span>
@@ -52,7 +52,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Description</span>
+                    <span>Descripción</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.description}}</span>
@@ -60,7 +60,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>Phone</span>
+                    <span>Telefono de Contacto</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.phone}}</span>
@@ -68,7 +68,7 @@
             </tr>
             <tr>
                 <td>
-                    <span>LostDate</span>
+                    <span>Fecha Desaparición</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{lost.lostDate}}</span>
@@ -76,20 +76,20 @@
             </tr>
             <tr>
                 <td>
-                    <span>Image</span>
+                    <span>Foto</span>
                 </td>
                 <td>
                     <img data-ng-src="{{'data:image/*;base64,' + lost.image}}" style="max-width: 100%;" ng-if="lost.image"/>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>
                     <span>have</span>
                 </td>
                 <td>
                     {{lost.have.id}}
                 </td>
-            </tr>
+            </tr>  -->
             </tbody>
         </table>
     </div>
@@ -97,6 +97,6 @@
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
     </button>
 </div>

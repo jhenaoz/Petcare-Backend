@@ -62,7 +62,7 @@ angular.module('petcareApp')
     	$scope.remove = function (id) {
             Sponsor.get({id: id}, function(result) {
                 $scope.sponsor = result;
-                $('#deleteAdoptionConfirmation').modal('show');
+                $('#deleteSponsorConfirmation').modal('show');
             });
         };
 

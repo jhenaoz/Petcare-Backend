@@ -151,7 +151,6 @@
             <img class="thePhoto" id="theImage" src=" ">
           </a>
           
-           <input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" />
         </div>
         <div class="media-body" style=" padding-top:1.67em">
           <form name="myForm" class="format" id="pet-form">
@@ -190,6 +189,13 @@
 	            	<textarea class="description"  rows="3" cols="50" ng-model="sponsor.description" TextMode="MultiLine" required></textarea>
 
             </div>
+            <div class="divSets">
+            	<span style="font-weight: bold;">Foto:</span>
+            	<div>
+            		<input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" ng-model="sponsor.image" />
+            	</div>
+            	
+            </div>
           </form>
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="clear()"> Cancelar </button>
             
@@ -199,7 +205,7 @@
     </div>
   </div>
   
-  <!-- Bad practice this have to be change, once db be ready -->
+  
   <div class="center-div" ng-repeat="pet in sponsors track by $index" id="post">
       <div class="alert" role="alert">
           <div class="media">
