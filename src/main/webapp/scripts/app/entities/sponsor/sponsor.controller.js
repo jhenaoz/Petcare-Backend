@@ -20,10 +20,20 @@ angular.module('petcareApp')
                     $scope.user = currentUser;
                     $scope.sponsor.have = currentUser;
                 });
-            })            
+            })
         };
-    	
+
+        // $scope.save = function () {
+        //     if ($scope.sponsor.id != null) {
+        //         Sponsor.update($scope.sponsor, onSaveFinished);
+        //     } else {
+        //         Sponsor.save($scope.sponsor, onSaveFinished);
+        //     }
+        // };
+
     	$scope.save = function(sponsor){
+            $scope.sponsor.image = "testImage";
+            $scope.sponsor.id = null;
             if ($scope.sponsor.id != null) {
             	Sponsor.update($scope.sponsor, function(result){
                     console.log(result);
@@ -58,7 +68,7 @@ angular.module('petcareApp')
             $scope.loadAll();
             $scope.clear();
         };*/
-    	
+
     	$scope.remove = function (id) {
             Sponsor.get({id: id}, function(result) {
                 $scope.sponsor = result;
@@ -77,7 +87,7 @@ angular.module('petcareApp')
         $scope.clear = function () {
             $scope.sponsor = {name: null, species: null, age: null, gender: null, size: null, description: null, image: null, id: null};
         };
-        
+
         $scope.init();
-        
+
     });
