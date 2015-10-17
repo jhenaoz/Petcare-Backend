@@ -55,6 +55,10 @@ public class AdoptionResourceTest {
     private static final String UPDATED_SIZE = "UPDATED_TEXT";
     private static final String DEFAULT_DESCRIPTION = "SAMPLE_TEXT";
     private static final String UPDATED_DESCRIPTION = "UPDATED_TEXT";
+    
+   // private static final byte[] DEFAULT_IMAGE = TestUtil.createByteArray(1, "0");
+   // private static final byte[] UPDATED_IMAGE = TestUtil.createByteArray(2, "1");
+
 
     @Inject
     private AdoptionRepository adoptionRepository;
@@ -83,6 +87,7 @@ public class AdoptionResourceTest {
         adoption.setGender(DEFAULT_GENDER);
         adoption.setSize(DEFAULT_SIZE);
         adoption.setDescription(DEFAULT_DESCRIPTION);
+       // adoption.setImage(DEFAULT_IMAGE);
     }
 
     @Test

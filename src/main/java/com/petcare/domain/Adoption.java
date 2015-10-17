@@ -42,6 +42,12 @@ public class Adoption implements Serializable {
     
     @Column(name = "description")
     private String description;
+    
+    @NotNull        
+    @Lob
+    @Column(name = "image", nullable = false)
+    private byte[] image;
+
 
     @ManyToOne
     private User have;
@@ -102,7 +108,15 @@ public class Adoption implements Serializable {
         this.description = description;
     }
 
-    public User getHave() {
+    public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public User getHave() {
         return have;
     }
 
