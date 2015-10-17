@@ -36,8 +36,8 @@
             </div>
         </div>
     </div> -->
-    
-    
+
+
     <div class="modal fade" id="deleteSponsorConfirmation">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -62,10 +62,10 @@
             </div>
         </div>
     </div>
-    
-    
-    
-  
+
+
+
+
 <!--    <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -129,28 +129,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
+
         </div>
-    
+
 	    <div class="collapse navbar-collapse" id="navbar-collapse2" >
 	        <ul class="nav nav-pills">
 	          <li role="presentation" ><a ui-sref="adoption">Adopción</a></li>
-	          <li role="presentation" class="active"><a ui-sref="#">Apadrinamiento</a></li> 
-	          <li role="presentation"><a ui-sref="lost">Extraviados</a></li> 
+	          <li role="presentation" class="active"><a ui-sref="#">Apadrinamiento</a></li>
+	          <li role="presentation"><a ui-sref="lost">Extraviados</a></li>
 	        </ul>
-	      
+
 	    </div>
   </nav>
-  
+
   <!-- panel with the form -->
   <div class="panel panel-primary" id="panel">
     <div class="panel-heading">Agrega una nueva mascota</div>
     <div class="panel-body" style=" padding-top:0.34em">
         <div class="media-left media-middle" >
           <a href="#"  style="font-size:10em;">
-            <img class="thePhoto" id="theImage" src=" ">
+            <img data-ng-src="{{'data:image/*;base64,' + sponsor.image}}" style="max-height: 100px;" ng-if="sponsor.image"/>
           </a>
-          
+
         </div>
         <div class="media-body" style=" padding-top:1.67em">
           <form name="myForm" class="format" id="pet-form">
@@ -161,12 +161,12 @@
 	            <input id="male" type="radio" ng-model="sponsor.species" name="species" value="dog" checked> Perro
 	            <input id="female" type="radio" ng-model="sponsor.species" name="species" value="cat"  style="margin-left:2.64em"> Gato
 			</div>
-			
+
 			<div class="divSets">
 	             <span style="font-weight: bold;">Edad:</span>
 	             <input id="theAge" type="number" ng-model="sponsor.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
             </div>
-            
+
             <div class="divSets">
 	             <span style="font-weight: bold;">Genero:</span>
 	             <div>
@@ -174,7 +174,7 @@
 			         <input id="female" type="radio" ng-model="sponsor.gender" name="sex" value="f"  style="margin-left:1.93em"> Hembra
            		</div>
             </div>
-            
+
             <div class="divSets">
 	            <span style="font-weight: bold;">Tamaño:</span>
 	            <div>
@@ -183,35 +183,63 @@
 		            <input id="large" type="radio" ng-model="sponsor.size" name="size" value="large"  style="margin-left:1em" > Grande
            		</div>
             </div>
-            
+
             <div class="divSets">
-	            	 <span style="font-weight: bold;">Descripción:</span>	            	
+	            	 <span style="font-weight: bold;">Descripción:</span>
 	            	<textarea class="description"  rows="3" cols="50" ng-model="sponsor.description" TextMode="MultiLine" required></textarea>
 
             </div>
-            <div class="divSets">
+<!--             <div class="divSets">
             	<span style="font-weight: bold;">Foto:</span>
             	<div>
             		<input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" ng-model="sponsor.image" />
             	</div>
-            	
+
+            </div> -->
+
+            <div class="form-group" ngf-drop ngf-change="setImage($files, sponsor)" ngf-accept="'image/*'">
+                <label for="field_image">Imagen</label>
+                <div>
+                    <div class="help-block clearfix">
+                        <span class="pull-left">{{byteSize(sponsor.image)}}</span>
+                        <button ng-click="sponsor.image=null"
+                                ng-if="sponsor.image"
+                                class="btn btn-default btn-xs pull-right">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                    <button type="file" ngf-select class="btn btn-default btn-block"
+                            ngf-change="setImage($files, sponsor)" accept="image/*">
+                        Subir imagen
+                    </button>
+                </div>
+                <input type="hidden" class="form-control" name="image" id="field_image"
+                        ng-model="sponsor.image"
+                        required>
+
+                <div ng-show="editForm.image.$invalid">
+                    <p class="help-block"
+                        ng-show="editForm.image.$error.required">
+                        Requisito obligatorio
+                    </p>
+                </div>
             </div>
           </form>
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="clear()"> Cancelar </button>
-            
+
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="save()"> Finalizar </button>
              <p id="demo"> </p>
        </div>
     </div>
   </div>
-  
-  
+
+
   <div class="center-div" ng-repeat="pet in sponsors track by $index" id="post">
       <div class="alert" role="alert">
           <div class="media">
             <div class="media-left media-middle">
-              <a class="icon-sponsor" href="#"> 
-                <img class="murray" src="../Img/adopt-cat.jpg" alt="...">
+              <a class="icon-sponsor" href="#">
+                <img data-ng-src="{{'data:image/*;base64,' + pet.image}}" style="max-height: 100px;" ng-if="pet.image"/>              
               </a>
             </div>
             <div class="media-body">
@@ -231,5 +259,5 @@
           </div>
       </div>
   </div>
-  
-  
+
+

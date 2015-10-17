@@ -38,7 +38,8 @@
                 <constraints nullable="false" />
             </column>
             <column name="description" type="varchar(255)"/>
-            <column name="image" type="varchar(255)">
+            
+            <column name="image" type="blob">
                 <constraints nullable="false" />
             </column>
             <column name="have_id" type="bigint"/>

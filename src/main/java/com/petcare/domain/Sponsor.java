@@ -46,8 +46,9 @@ public class Sponsor implements Serializable {
     private String description;
 
     @NotNull        
+    @Lob
     @Column(name = "image", nullable = false)
-    private String image;
+    private byte[] image;
 
     @ManyToOne
     private User have;
@@ -108,15 +109,15 @@ public class Sponsor implements Serializable {
         this.description = description;
     }
 
-    public String getImage() {
-        return image;
-    }
+    public byte[] getImage() {
+		return image;
+	}
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 
-    public User getHave() {
+	public User getHave() {
         return have;
     }
 

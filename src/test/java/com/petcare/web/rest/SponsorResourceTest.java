@@ -85,7 +85,7 @@ public class SponsorResourceTest {
         sponsor.setGender(DEFAULT_GENDER);
         sponsor.setSize(DEFAULT_SIZE);
         sponsor.setDescription(DEFAULT_DESCRIPTION);
-        sponsor.setImage(DEFAULT_IMAGE);
+//        sponsor.setImage(DEFAULT_IMAGE);
     }
 
     @Test
@@ -284,7 +284,7 @@ public class SponsorResourceTest {
         sponsor.setGender(UPDATED_GENDER);
         sponsor.setSize(UPDATED_SIZE);
         sponsor.setDescription(UPDATED_DESCRIPTION);
-        sponsor.setImage(UPDATED_IMAGE);
+//        sponsor.setImage(UPDATED_IMAGE);
         
 
         restSponsorMockMvc.perform(put("/api/sponsors")
