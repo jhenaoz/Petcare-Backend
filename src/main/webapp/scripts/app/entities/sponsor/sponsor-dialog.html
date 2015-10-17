@@ -1,21 +1,21 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+<form clase="editForm" name="editForm" role="form" novalidate ng-submit="save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="mySponsorLabel">Create or edit a Sponsor</h4>
+        <h4 class="modal-title" id="mySponsorLabel">Editar una mascota para apadrinamiento</h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
-        <div class="form-group">
+        <!--  <div class="form-group">
             <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="sponsor.id" readonly>
-        </div>
+        </div>-->
 
         <div class="form-group">
-            <label for="field_name">Name</label>
+            <label for="field_name">Nombre</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="sponsor.name"
                     required>
@@ -23,25 +23,26 @@
             <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
                     ng-show="editForm.name.$error.required">
-                    This field is required.
+                    Requisito obligatorio
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label for="field_species">Species</label>
-            <input type="text" class="form-control" name="species" id="field_species"
-                    ng-model="sponsor.species"
-                    required>
+            <label for="field_species">Especie</label>
+            <div>
+	            <input id="dog" type="radio" ng-model="sponsor.species" name="species" value="dog"  checked required> Perro
+	            <input id="cat" type="radio" ng-model="sponsor.species" name="species" value="cat" style="margin-left:2.64em"> Gato
+			</div>
 
             <div ng-show="editForm.species.$invalid">
                 <p class="help-block"
                     ng-show="editForm.species.$error.required">
-                    This field is required.
+                    Requisito obligatorio
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label for="field_age">Age</label>
+            <label for="field_age">Edad</label>
             <input type="number" class="form-control" name="age" id="field_age"
                     ng-model="sponsor.age"
                     required>
@@ -49,79 +50,82 @@
             <div ng-show="editForm.age.$invalid">
                 <p class="help-block"
                     ng-show="editForm.age.$error.required">
-                    This field is required.
+                    Requisito obligatorio
                 </p>
                 <p class="help-block"
                     ng-show="editForm.age.$error.number">
-                    This field should be a number.
+                    Este campo debe ser un número
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label for="field_gender">Gender</label>
-            <input type="text" class="form-control" name="gender" id="field_gender"
-                    ng-model="sponsor.gender"
-                    required ng-pattern="/(^[m|f]$)/">
+            <label for="field_gender">Genero</label>
+            <div>
+            	<input id="male" type="radio" ng-model="sponsor.gender" name="sex" value="m"  checked required> Macho
+				<input id="female" type="radio" ng-model="sponsor.gender" name="sex" value="f" style="margin-left:1.93em" > Hembra
+			</div>
 
             <div ng-show="editForm.gender.$invalid">
                 <p class="help-block"
                     ng-show="editForm.gender.$error.required">
-                    This field is required.
+                    Requisito obligatorio
                 </p>
                 <p class="help-block"
                     ng-show="editForm.gender.$error.pattern" translate-value-pattern="(^[m|f]$)">
-                    This field should follow pattern "(^[m|f]$)".
+                    Este campo debe ser "m" o "f"
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label for="field_size">Size</label>
-            <input type="text" class="form-control" name="size" id="field_size"
-                    ng-model="sponsor.size"
-                    required>
+            <label for="field_size">Tamaño</label>
+            <div>
+				<input id="small" type="radio" ng-model="sponsor.size" name="size" value="small" checked required> Pequeño
+	            <input id="medium" type="radio" ng-model="sponsor.size" name="size" value="medium" style="margin-left:1em"> Mediano
+	            <input id="large" type="radio" ng-model="sponsor.size" name="size" value="large" style="margin-left:1em"> Grande
+		    </div>
 
             <div ng-show="editForm.size.$invalid">
                 <p class="help-block"
                     ng-show="editForm.size.$error.required">
-                    This field is required.
+                    Requisito obligatorio
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label for="field_description">Description</label>
+            <label for="field_description">Descripción</label>
             <input type="text" class="form-control" name="description" id="field_description"
                     ng-model="sponsor.description"
                     >
 
         </div>
         <div class="form-group">
-            <label for="field_image">Image</label>
-            <input type="text" class="form-control" name="image" id="field_image"
+            <label for="field_image">Imagen</label>
+            <input type="file" class="form-control" name="image" id="field_image"
                     ng-model="sponsor.image"
                     required>
 
             <div ng-show="editForm.image.$invalid">
                 <p class="help-block"
                     ng-show="editForm.image.$error.required">
-                    This field is required.
+                    Requisito obligatorio
                 </p>
             </div>
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
             <label for="field_have">have</label>
             
             <select class="form-control" id="field_have" name="have" ng-model="sponsor.have" ng-options="user as user.id for user in users track by user.id">
                 <option value=""></option>
             </select>
             
-        </div>
+        </div>-->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
         </button>
     </div>
 </form>

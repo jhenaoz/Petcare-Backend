@@ -47,6 +47,8 @@ angular.module('petcareApp')
                    $scope.init();
                });
        };
+       
+      
     	
        $scope.clear = function () {
          $scope.adoption = {name: null, species: null, age: null, gender: null, size: null, description: null, id: null};

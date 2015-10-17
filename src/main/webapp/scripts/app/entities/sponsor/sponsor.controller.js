@@ -33,11 +33,12 @@ angular.module('petcareApp')
 
     	$scope.save = function(sponsor){
             $scope.sponsor.image = "testImage";
-            $scope.sponsor.id = null;
+//            $scope.sponsor.id = null;
             if ($scope.sponsor.id != null) {
             	Sponsor.update($scope.sponsor, function(result){
                     console.log(result);
-                    $scope.sponsors.push(result);
+//                    $scope.sponsors.push(result);
+                    $scope.init();
                     $scope.sponsor = {};
                 });
             } else {
@@ -83,6 +84,8 @@ angular.module('petcareApp')
                     $scope.init();
                 });
         };
+        
+       
 
         $scope.clear = function () {
             $scope.sponsor = {name: null, species: null, age: null, gender: null, size: null, description: null, image: null, id: null};
