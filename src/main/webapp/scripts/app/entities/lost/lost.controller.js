@@ -24,10 +24,9 @@ angular.module('petcareApp')
         };
     	
     	$scope.save = function(lost){
-            if ($scope.sponsor.id != null) {
+            if ($scope.lost.id != null) {
             	Lost.update($scope.lost, function(result){
                     console.log(result);
-                    $scope.losts.push(result);
                     $scope.lost = {};
                 });
             } else {
@@ -98,6 +97,21 @@ angular.module('petcareApp')
             }
 
             return formatAsBytes(size(base64String));
+        };
+        
+        $scope.setImage = function ($files, lost) {
+            if ($files[0]) {
+                var file = $files[0];
+                var fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onload = function (e) {
+                    var data = e.target.result;
+                    var base64Data = data.substr(data.indexOf('base64,') + 'base64,'.length);
+                    $scope.$apply(function() {
+                        lost.image = base64Data;
+                    });
+                };
+            }
         };
         
         

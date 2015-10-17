@@ -1,4 +1,4 @@
- <div>
+<!-- <div>
 
     <h2>Losts</h2>
     <jh-alert></jh-alert>
@@ -35,7 +35,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
     
      <div class="modal fade" id="deleteLostConfirmation">
         <div class="modal-dialog">
@@ -65,7 +65,7 @@
     
     
 
-   <div class="table-responsive">
+<!--   <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -122,7 +122,7 @@
             </tbody>
         </table>
     </div>
-</div> 
+</div>  -->
 
 
 
@@ -156,7 +156,7 @@
         <div class="media-left media-middle" >
           <a href="#"  style="font-size:10em;">
             
-            <img class="thePhoto" data-ng-src="{{'data:image/*;base64,' + lost.image}}" style="max-height: 30px;" ng-if="lost.image"/>
+            <img data-ng-src="{{'data:image/*;base64,' + lost.image}}" style="max-height: 100px;" ng-if="lost.image"/>
                         
           </a>
           
@@ -213,14 +213,45 @@
             	</div>
             </div>
             
-            <div class="divSets">
+            <!--<div class="divSets">
             	<span style="font-weight: bold;">Foto:</span>
             	<div>
             		<input type="file" name="picField" id="picField" size="24" onchange="preview_2(this);" alt="" ng-model="lost.image" ng-click="setImage()"/>  
-            		 
+            		<img data-ng-src="{{'data:image/*;base64,' + lost.image}}" style="max-height: 30px;" ng-if="lost.image"/>
+                        {{byteSize(lost.image)}}
             	</div>
             	
-            </div>
+            </div>-->
+            
+            <div class="divSets" ngf-drop ngf-change="setImage($files, lost)" ngf-accept="'image/*'">
+	            <label for="field_image" style="font-weight: bold;">Foto</label>
+	            <div>
+	                
+	                <div class="help-block clearfix">
+	                    <span class="pull-left">{{byteSize(lost.image)}}</span>
+	                    <button ng-click="lost.image=null"
+	                            ng-if="lost.image"
+	                            class="btn btn-default btn-xs pull-right">
+	                        <span class="glyphicon glyphicon-remove"></span>
+	                    </button>
+	                </div>
+	                <button type="file" ngf-select class="btn btn-default btn-block"
+	                        ngf-change="setImage($files, lost)" accept="image/*">
+	                    Subir imagen
+	                </button>
+	            </div>
+	            <input type="hidden" class="form-control" name="image" id="field_image"
+	                    ng-model="lost.image"
+	                    required>
+	
+	            <div ng-show="editForm.image.$invalid">
+	                <p class="help-block"
+	                    ng-show="editForm.image.$error.required">
+	                    Requisito obligatorio
+	                </p>
+	            </div>
+	        </div>
+            
           </form>
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="clean()"> Cancelar </button>
             
