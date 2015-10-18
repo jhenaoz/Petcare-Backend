@@ -33,20 +33,20 @@
             <label for="field_age">Edad</label>
             <input type="number" class="form-control" name="age" id="field_age" style="width:300px"
                     ng-model="adoption.age" required
-                    min="0" max="50">
+                    min="0" max="260">
 
             <div ng-show="editForm.age.$invalid">
                 <p class="help-block"
                     ng-show="editForm.age.$error.min" translate-value-min="0">
-                    This field should be more than 0.
+                    La edad minima es 1 mes
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.age.$error.max" translate-value-max="50">
-                    This field cannot be more than 50.
+                    ng-show="editForm.age.$error.max" translate-value-max="260">
+                    La edad maxima son 260 meses
                 </p>
                 <p class="help-block"
                     ng-show="editForm.age.$error.number">
-                    This field should be a number.
+                    Este campo debe ser un numero
                 </p>
             </div>
         </div>

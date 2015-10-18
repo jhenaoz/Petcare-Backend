@@ -166,14 +166,14 @@
            	<input type="text" class="form-control" id="id" name="id" ng-model="lost.id" readonly ng-show="false">
            	<div class="divSets">
 	            <span style="font-weight: bold;">Nombre:</span>
-	            <input id="theName" ng-model="lost.name" type="text" class="text-box" name="firstname" required>
+	            <input id="theName" ng-model="lost.name" type="text" class="form-control" name="firstname" required>
 	            <input id="male" type="radio" ng-model="lost.species" name="species" value="dog" checked> Perro
 	            <input id="female" type="radio" ng-model="lost.species" name="species" value="cat" style="margin-left:2.64em"> Gato
 			</div>
 			
 			<div class="divSets">
 	             <span style="font-weight: bold;">Edad:</span>
-	             <input id="theAge" type="number" ng-model="lost.age" min="1" max="250" class="text-box" name="age" placeholder="Meses" required >
+	             <input id="theAge" type="number" ng-model="lost.age" min="1" max="250" class="form-control" name="age" placeholder="Meses" required >
             </div>
             
             <div class="divSets">
@@ -195,7 +195,7 @@
 
             <div class="divSets">
 	            	<span style="font-weight: bold;">Descripción:</span>	            	
-	            	<textarea class="description"  rows="3" cols="50" ng-model="lost.description" TextMode="MultiLine" required></textarea>
+	            	<textarea class="form-control"  rows="3" cols="50" ng-model="lost.description" TextMode="MultiLine" required></textarea>
 
             </div>
             
@@ -207,7 +207,7 @@
             <div class="divSets">
 	            <label for="field_phone">Telefono de contacto</label>
 	            <input type="number" class="form-control" name="phone" id="field_phone"
-	                    ng-model="lost.phone"
+	                    ng-model="lost.phone" min="1" max="20"
 	                    required>
 	
 	            <div ng-show="editForm.phone.$invalid">
@@ -231,7 +231,7 @@
             
             <div class="divSets">
 	            <label for="field_lostDate">Fecha desaparición</label>
-	            <input type="date" class="form-control" name="lostDate" id="field_lostDate"
+	            <input type="date" class="form-control" name="lostDate" id="field_lostDate" style="width:30%;"
 	                    ng-model="lost.lostDate"
 	                    required>
 	

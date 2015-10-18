@@ -157,14 +157,14 @@
            	<input type="text" class="form-control" id="id" name="id" ng-model="sponsor.id" readonly ng-show="false">
            	<div class="divSets">
 	            <span style="font-weight: bold;">Nombre:</span>
-	            <input id="theName" ng-model="sponsor.name" type="text" class="text-box" name="firstname" required>
+	            <input id="theName" ng-model="sponsor.name" type="text" class="form-control" name="firstname" required>
 	            <input id="male" type="radio" ng-model="sponsor.species" name="species" value="dog" checked> Perro
 	            <input id="female" type="radio" ng-model="sponsor.species" name="species" value="cat"  style="margin-left:2.64em"> Gato
 			</div>
 
 			<div class="divSets">
 	             <span style="font-weight: bold;">Edad:</span>
-	             <input id="theAge" type="number" ng-model="sponsor.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
+	             <input id="theAge" type="number" ng-model="sponsor.age" min="1" max="250" class="form-control" name="age" placeholder="Meses" required >
             </div>
 
             <div class="divSets">
@@ -186,7 +186,7 @@
 
             <div class="divSets">
 	            	 <span style="font-weight: bold;">Descripción:</span>
-	            	<textarea class="description"  rows="3" cols="50" ng-model="sponsor.description" TextMode="MultiLine" required></textarea>
+	            	<textarea class="form-control" rows="3" cols="50" ng-model="sponsor.description" TextMode="MultiLine" required></textarea>
 
             </div>
 <!--             <div class="divSets">
