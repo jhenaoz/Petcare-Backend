@@ -368,6 +368,7 @@ small {
 }
 
 .text-box {
+	
 	-moz-border-radius: 0.34em;
 	-webkit-border-radius: 0.27em;
 }
@@ -480,6 +481,7 @@ small {
 }
 #pet-form .divSets input[type="text"],
 #pet-form .divSets input[type="number"],
+#pet-form .divSets input[type="hidden"],
 #pet-form .divSets textarea {
   display: block;
   width: 30%;
@@ -487,6 +489,7 @@ small {
 @media (max-width: 700px) {
   #pet-form .divSets input[type="text"],
   #pet-form .divSets input[type="number"],
+  #pet-form .divSets input[type="hidden"],
   #pet-form .divSets textarea {
     width: 40%;
     display: block;

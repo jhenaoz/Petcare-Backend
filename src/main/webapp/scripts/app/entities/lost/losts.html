@@ -154,9 +154,9 @@
     <div class="panel-heading">Agrega una nueva mascota</div>
     <div class="panel-body" style=" padding-top:0.34em">
         <div class="media-left media-middle" >
-          <a href="#"  style="font-size:10em;">
+          <a href="#">
             
-            <img data-ng-src="{{'data:image/*;base64,' + lost.image}}" style="max-height: 100px;" ng-if="lost.image"/>
+            <img data-ng-src="{{'data:image/*;base64,' + lost.image}}" class="thePhoto" ng-if="lost.image"/>
                         
           </a>
           
@@ -173,7 +173,7 @@
 			
 			<div class="divSets">
 	             <span style="font-weight: bold;">Edad:</span>
-	             <input id="theAge" type="number" ng-model="lost.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
+	             <input id="theAge" type="number" ng-model="lost.age" min="1" max="250" class="text-box" name="age" placeholder="Meses" required >
             </div>
             
             <div class="divSets">
@@ -199,19 +199,49 @@
 
             </div>
             
-             <div class="divSets">
-	             <span style="font-weight: bold;">Teléfono de contacto:</span>
-	             <div>
-	             	<input id="thePhone" type="number" ng-model="lost.phone" min="1" max="10" class="text-box" name="phone" placeholder="Teléfono de contacto" required >
-            	</div>
-            </div>
+             <!--<div class="divSets">
+	             <span style="font-weight: bold;">Telefono de Contacto:</span>
+	             <input id="thePhone" type="number" ng-model="lost.phone" min="1" max="250" class="text-box" name="phone" placeholder="Telefono de Contacto" required >
+            </div>-->
             
             <div class="divSets">
-	             <span style="font-weight: bold;">Fecha desaparición:</span>
+	            <label for="field_phone">Telefono de contacto</label>
+	            <input type="number" class="form-control" name="phone" id="field_phone"
+	                    ng-model="lost.phone"
+	                    required>
+	
+	            <div ng-show="editForm.phone.$invalid">
+	                <p class="help-block"
+	                    ng-show="editForm.phone.$error.required">
+	                    Requisito obligatorio
+	                </p>
+	                <p class="help-block"
+	                    ng-show="editForm.phone.$error.number">
+	                    Este campo debe ser un número
+	                </p>
+	            </div>
+	        </div>
+            
+            <!--<div class="divSets">
+	             <span style="font-weight: bold;">Fecha Desaparición:</span>
 	            <div>
 	             	<input id="theLostDate" type="date" ng-model="lost.lostDate" min="1" max="50" class="text-box" name="lostDate" placeholder="Fecha desaparición" required >
             	</div>
-            </div>
+            </div>-->
+            
+            <div class="divSets">
+	            <label for="field_lostDate">Fecha desaparición</label>
+	            <input type="date" class="form-control" name="lostDate" id="field_lostDate"
+	                    ng-model="lost.lostDate"
+	                    required>
+	
+	            <div ng-show="editForm.lostDate.$invalid">
+	                <p class="help-block"
+	                    ng-show="editForm.lostDate.$error.required">
+	                    Requisito obligatorio
+	                </p>
+	            </div>
+	        </div>
             
             <!--<div class="divSets">
             	<span style="font-weight: bold;">Foto:</span>
@@ -235,7 +265,7 @@
 	                        <span class="glyphicon glyphicon-remove"></span>
 	                    </button>
 	                </div>
-	                <button type="file" ngf-select class="btn btn-default btn-block"
+	                <button type="file" ngf-select class="btn btn-default btn-block text-box" style="width:30%;"
 	                        ngf-change="setImage($files, lost)" accept="image/*">
 	                    Subir imagen
 	                </button>
@@ -262,18 +292,18 @@
   </div>
   
   <!-- Bad practice this have to be change, once db be ready -->
-  <div class="center-div" ng-repeat="pet in sponsors track by $index" id="post">
+  <div class="center-div" ng-repeat="pet in losts track by $index" id="post">
       <div class="alert" role="alert">
           <div class="media">
             <div class="media-left media-middle">
               <a class="icon-adoption" href="#"> 
-                <img class="murray" src="../Img/adopt-cat.jpg" alt="...">
+                 <img data-ng-src="{{'data:image/*;base64,' + pet.image}}" style="max-height: 100px;" ng-if="pet.image"/>
               </a>
             </div>
             <div class="media-body">
 	        	<button class="btn btn-alert" aria-label="Edit Pencil" style="float:right" type="submit"
-                                ui-sref="lost.edit({id:lost.id})">
-	  				<span class="glyphicon glyphicon-pencil" aria-hidden="true" ui-sref="lost.edit({id:lost.id})"></span>
+                                ui-sref="lost.edit({id:pet.id})">
+	  				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				</button>
 				<button type="button" class="btn btn-alert" aria-label="Edit Pencil" style="float:right; margin-right:0.2em" >
 	  				<span class="glyphicon glyphicon-trash" ng-click="remove(pet.id)" aria-hidden="true"></span>
@@ -282,9 +312,9 @@
 	            <h4> Edad: <small> {{pet.age}}</small> </h4>
 	            <h4> Genero: <small> {{pet.gender}} </small> </h4>
 	            <h4> Tamaño: <small> {{pet.size}} </small> </h4>
-	            <p style="color:black">{{pet.description}} </p>
 	            <h4> Telefono de Contacto: <small> {{pet.phone}} </small> </h4>
 	            <h4> Fecha Desaparición: <small> {{pet.lostDate}} </small> </h4>
+	            <p style="color:black">{{pet.description}} </p>
             </div>
           </div>
       </div>

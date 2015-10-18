@@ -98,9 +98,24 @@
                     >
 
         </div>
-        <div class="form-group">
-            <label for="field_image">Imagen</label>
-            <input type="file" class="form-control" name="image" id="field_image"
+       <div class="form-group" ngf-drop ngf-change="setImage($files, sponsor)" ngf-accept="'image/*'">
+            <label for="field_image">Foto</label>
+            <div>
+                <img data-ng-src="{{'data:image/*;base64,' + sponsor.image}}" style="max-height: 100px;" ng-if="sponsor.image"/>
+                <div class="help-block clearfix">
+                    <span class="pull-left">{{byteSize(sponsor.image)}}</span>
+                    <button ng-click="sponsor.image=null"
+                            ng-if="sponsor.image"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="setImage($files, sponsor)" accept="image/*">
+                    Subir imagen
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
                     ng-model="sponsor.image"
                     required>
 
