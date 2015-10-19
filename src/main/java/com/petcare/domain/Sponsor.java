@@ -47,7 +47,7 @@ public class Sponsor implements Serializable {
 
     @NotNull        
     @Lob
-    @Column(name = "image", nullable = false)
+    @Column(name = "image", nullable = false, length=100000)
     private byte[] image;
 
     @ManyToOne
