@@ -28,7 +28,7 @@ public class Adoption implements Serializable {
     private String species;
 
     @Min(value = 0)
-    @Max(value = 50)        
+    @Max(value = 250)        
     @Column(name = "age")
     private Integer age;
 

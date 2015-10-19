@@ -23,7 +23,7 @@
                     </div>
                     <div class="modal-body">
                         <p> bla bla bla ¿Esta seguro que desea eliminar esta mascota para adopción?</p>
-                        <p> {{adoption.id}} </p> 
+                        <p> {{adoption.id}} </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
@@ -98,18 +98,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
+
         </div>
-    
+
 	   <div class="collapse navbar-collapse" id="navbar-collapse2" >
 	     <ul class="nav nav-pills">
 	      <li role="presentation" class="active"><a ui-sref="#">Adopción</a></li>
-	      <li role="presentation" ><a ui-sref="sponsor">Apadrinamiento</a></li> 
-	      <li role="presentation" ><a ui-sref="lost">Extraviados</a></li> 
+	      <li role="presentation" ><a ui-sref="sponsor">Apadrinamiento</a></li>
+	      <li role="presentation" ><a ui-sref="lost">Extraviados</a></li>
 	     </ul>
 	   </div>
    </nav>
-  
+
   <!-- panel with the form -->
   <div class="panel panel-primary" id="panel">
     <div class="panel-heading">Agrega una nueva mascota</div>
@@ -117,12 +117,12 @@
         <div class="media-left media-middle" >
           <a href="#"  style="font-size:10em;">
             <img data-ng-src="{{'data:image/*;base64,' + adoption.image}}" style="max-height: 100px;" ng-if="adoption.image"/>
-              
+
           </a>
-          
+
         </div>
         <div class="media-body" style=" padding-top:1.67em">
-          <form name="myForm" class="format has-error" id="pet-form">
+          <form name="editForm" class="format has-error" id="pet-form">
           	<a ui-sref="adoption.detail({id:adoption.id})" ng-show="false" ng-model="adoption.id"></a>
            	<!--<input type="text" class="form-control" id="id" name="id" ng-model="adoption.id" readonly ng-show="false">-->
            	<div class="divSets">
@@ -131,12 +131,12 @@
 	            <input id="dog" type="radio" ng-model="adoption.species" name="species" value="dog"  checked> Perro
 	            <input id="cat" type="radio" ng-model="adoption.species" name="species" value="cat" style="margin-left:2.64em"> Gato
 			</div>
-			
+
 			<div class="divSets">
 	             <span style="font-weight: bold;">Edad:</span>
 	             <input id="theAge" type="number" ng-model="adoption.age" min="1" max="50" class="text-box" name="age" placeholder="Meses" required >
             </div>
-            
+
             <div class="divSets">
 	             <span style="font-weight: bold;">Genero:</span>
 	             <div>
@@ -144,7 +144,7 @@
 			         <input id="female" type="radio" ng-model="adoption.gender" name="sex" value="f" style="margin-left:1.93em" > Hembra
            		</div>
             </div>
-            
+
             <div class="divSets">
 	            <span style="font-weight: bold;">Tamaño:</span>
 	            <div>
@@ -153,18 +153,18 @@
 		            <input id="large" type="radio" ng-model="adoption.size" name="size" value="large" style="margin-left:1em"> Grande
            		</div>
             </div>
-            
+
             <div class="divSets">
-	            	 <span style="font-weight: bold;">Descripción:</span>	            	
+	            	 <span style="font-weight: bold;">Descripción:</span>
 	            	<textarea class="description"  rows="3" cols="50" ng-model="adoption.description" TextMode="MultiLine"  required></textarea>
             </div>
-            
+
             <div class="divSets" ngf-drop ngf-change="setImage($files, adoption)" ngf-accept="'image/*'">
 	            <label for="field_image" style="font-weight: bold;">Foto</label>
 	            <div>
-	                
+
 	                <div class="help-block clearfix">
-	                    <span class="pull-left">{{byteSize(adoption.image)}}</span>
+	                    <!-- <span class="pull-left">{{byteSize(adoption.image)}}</span> -->
 	                    <button ng-click="adoption.image=null"
 	                            ng-if="adoption.image"
 	                            class="btn btn-default btn-xs pull-right">
@@ -179,7 +179,7 @@
 	            <input type="hidden" class="form-control" name="image" id="field_image"
 	                    ng-model="adoption.image"
 	                    required>
-	
+
 	            <div ng-show="editForm.image.$invalid">
 	                <p class="help-block"
 	                    ng-show="editForm.image.$error.required">
@@ -187,22 +187,22 @@
 	                </p>
 	            </div>
 	        </div>
-            
+
           </form>
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="clear()"> Cancelar </button>
-            
+
             <button class="btn-img btn-primary btn-md" style="margin-left:1em; margin-top:1em;" ng-click="save()"> Finalizar </button>
              <p id="demo"> </p>
        </div>
     </div>
   </div>
-  
+
   <!-- Bad practice this have to be change, once db be ready -->
   <div class="center-div" ng-repeat="pet in adoptions track by $index" id="post">
       <div class="alert" role="alert">
           <div class="media">
             <div class="media-left media-middle">
-              <a class="icon-adoption" href="#"> 
+              <a class="icon-adoption" href="#">
                 <img data-ng-src="{{'data:image/*;base64,' + pet.image}}" style="max-height: 100px;" ng-if="pet.image"/>
               </a>
             </div>
