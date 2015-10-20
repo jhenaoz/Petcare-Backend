@@ -76,7 +76,7 @@ public class AdoptionResource {
     @Timed
     public List<Adoption> getAll() {
         log.debug("REST request to get all Adoptions");
-        return adoptionRepository.findByHaveIsCurrentUser();
+        return adoptionRepository.findAll();
     }
 
     /**
