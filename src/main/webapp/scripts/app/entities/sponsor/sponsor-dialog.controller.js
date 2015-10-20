@@ -29,7 +29,6 @@ angular.module('petcareApp').controller('SponsorDialogController',
             $modalInstance.dismiss('cancel');
         };
         
-
         $scope.abbreviate = function (text) {
             if (!angular.isString(text)) {
                 return '';
