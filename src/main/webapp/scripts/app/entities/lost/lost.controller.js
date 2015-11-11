@@ -32,7 +32,8 @@ angular.module('petcareApp')
         // };
 
     	$scope.save = function(lost){
-            $scope.lost.phone = 4213212;
+            $scope.lost.phone = 3105384844;
+    	
             if ($scope.lost.id != null) {
             	Lost.update($scope.lost, function(result){
                     console.log(result);
