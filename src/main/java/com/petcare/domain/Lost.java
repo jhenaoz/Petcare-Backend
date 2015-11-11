@@ -54,7 +54,7 @@ public class Lost implements Serializable {
 
     @NotNull    
     @Column(name = "phone", nullable = false)
-    private Integer phone;
+    private Long phone;
 
     @NotNull        
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
@@ -127,11 +127,11 @@ public class Lost implements Serializable {
         this.description = description;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

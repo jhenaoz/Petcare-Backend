@@ -38,7 +38,7 @@
                 <constraints nullable="false" />
             </column>
             <column name="description" type="varchar(255)"/>
-            <column name="phone" type="integer">
+            <column name="phone" type="long">
                 <constraints nullable="false" />
             </column>
             <column name="lost_date" type="date">
