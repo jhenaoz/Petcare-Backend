@@ -32,8 +32,8 @@ public class Adoption implements Serializable {
     @Column(name = "age")
     private Integer age;
 
-    @Pattern(regexp = "(^[m|f]$)")        
-    @Column(name = "gender")
+    @NotNull      
+    @Column(name = "gender", nullable = false)
     private String gender;
 
     @NotNull        

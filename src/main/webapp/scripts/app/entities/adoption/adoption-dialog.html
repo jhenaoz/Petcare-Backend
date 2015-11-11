@@ -53,8 +53,8 @@
         <div class="form-group">
             <label for="field_gender">Genero</label>
             <div>
-             <input id="male" type="radio" ng-model="adoption.gender" name="sex" value="m"  checked required> Macho
-			 <input id="female" type="radio" ng-model="adoption.gender" name="sex" value="f" style="margin-left:1.93em" > Hembra
+             <input id="male" type="radio" ng-model="adoption.gender" name="sex" value="Macho"  checked required> Macho
+			 <input id="female" type="radio" ng-model="adoption.gender" name="sex" value="Hembra" style="margin-left:1.93em" > Hembra
             <!--<input type="text" class="form-control" name="gender" id="field_gender"
                     ng-model="adoption.gender"
                     ng-pattern="/(^[m|f]$)/">-->
@@ -72,9 +72,9 @@
                     ng-model="adoption.size"
                     required>-->
             <div>
-				<input id="small" type="radio" ng-model="adoption.size" name="size" value="small" checked required> Pequeño
-	            <input id="medium" type="radio" ng-model="adoption.size" name="size" value="medium" style="margin-left:1em"> Mediano
-	            <input id="large" type="radio" ng-model="adoption.size" name="size" value="large" style="margin-left:1em"> Grande
+				<input id="small" type="radio" ng-model="adoption.size" name="size" value="Pequeño" checked required> Pequeño
+	            <input id="medium" type="radio" ng-model="adoption.size" name="size" value="Mediano" style="margin-left:1em"> Mediano
+	            <input id="large" type="radio" ng-model="adoption.size" name="size" value="Grande" style="margin-left:1em"> Grande
 		    </div>
 			
             <div ng-show="editForm.size.$invalid">

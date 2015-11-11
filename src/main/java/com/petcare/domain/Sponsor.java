@@ -29,12 +29,12 @@ public class Sponsor implements Serializable {
     @Column(name = "species", nullable = false)
     private String species;
 
-    @NotNull        
-    @Column(name = "age", nullable = false)
+    @Min(value = 0)
+    @Max(value = 260)        
+    @Column(name = "age")
     private Integer age;
 
-    @NotNull
-    @Pattern(regexp = "(^[m|f]$)")        
+    @NotNull      
     @Column(name = "gender", nullable = false)
     private String gender;
 

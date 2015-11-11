@@ -35,12 +35,13 @@ public class Lost implements Serializable {
     @Column(name = "species", nullable = false)
     private String species;
 
-    @NotNull        
+    @NotNull   
+    @Min(value = 0)
+    @Max(value = 260)    
     @Column(name = "age", nullable = false)
     private Integer age;
 
-    @NotNull
-    @Pattern(regexp = "(^[m|f]$)")        
+    @NotNull      
     @Column(name = "gender", nullable = false)
     private String gender;
 
@@ -51,7 +52,7 @@ public class Lost implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @NotNull        
+    @NotNull    
     @Column(name = "phone", nullable = false)
     private Integer phone;
 
