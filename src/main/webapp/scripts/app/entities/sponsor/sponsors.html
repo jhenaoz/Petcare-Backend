@@ -201,11 +201,11 @@
                 <label for="field_image">Foto</label>
                 <div>
                     <div class="help-block clearfix">
-                        <span class="pull-left">{{byteSize(sponsor.image)}}</span>
+                        <span class="pull-left" style="width:25.5%;">{{byteSize(sponsor.image)}}</span>
                         <button ng-click="sponsor.image=null"
                                 ng-if="sponsor.image"
-                                class="btn btn-default btn-xs pull-right">
-                            <span class="glyphicon glyphicon-remove"></span>
+                                class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-remove" style="margin-right:0.4em; margin-top:0.1em"></span>
                         </button>
                     </div>
                     <button type="file" ngf-select class="btn btn-default btn-block" style="width:30%;"
